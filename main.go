@@ -1,9 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
+import "github.com/realzai/commito/cmd"
 
 func main() {
-	fmt.Println("commito commiting")
+	cmd.Execute()
 }
