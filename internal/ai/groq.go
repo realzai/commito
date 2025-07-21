@@ -56,6 +56,25 @@ func (c *GroqClient) Ask(question, diff string) (string, error) {
 	return resp, nil
 }
 
+func (c *GroqClient) Suggest(diff string) (string, error) {
+	systemMsg := ChatMessage{
+		Role:    "system",
+		Content: "You are a helpful assistant that provides concise and accurate commit messages based on the provided context.",
+	}
+
+	userMsg := ChatMessage{
+		Role:    "user",
+		Content: fmt.Sprintf("Based on the following changes:\n\n%s\n\nPlease suggest a commit message.", diff),
+	}
+
+	resp, err := c.CreateChatCompletion([]ChatMessage{systemMsg, userMsg})
+	if err != nil {
+		return "", fmt.Errorf("failed to suggest commit message: %w", err)
+	}
+
+	return resp, nil
+}
+
 func (c *GroqClient) CreateChatCompletion(messages []ChatMessage) (string, error) {
 	url := "https://api.groq.com/openai/v1/chat/completions"
 

@@ -7,6 +7,7 @@ import (
 
 type AIClient interface {
 	Ask(prompt string, diff string) (string, error)
+	Suggest(diff string) (string, error)
 }
 
 func NewClientFromConfig(cfg config.Config) (AIClient, error) {
