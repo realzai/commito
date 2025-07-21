@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/realzai/commito/internal/ai"
 	"github.com/realzai/commito/internal/config"
+	"github.com/realzai/commito/internal/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -26,7 +27,16 @@ var answerCmd = &cobra.Command{
 			return
 		}
 
-		msg, err := client.Ask(question)
+		diff, _ := utils.GetStagedDiff()
+
+		if diff == "" {
+			fmt.Println("❌ No staged changes found. Please stage your changes before asking a question.")
+			return
+		}
+
+		println("Staged changes detected. Asking AI to answer the question based on these changes...")
+
+		msg, err := client.Ask(question, diff)
 		if err != nil {
 			fmt.Println("❌ AI error:", err)
 			return
