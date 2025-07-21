@@ -15,8 +15,8 @@ func EnsureConfigured() (*config.Config, error) {
 		return nil, fmt.Errorf("❌ missing provider or API key. Please run `commito setup`.")
 	}
 
-	if cfg.Provider == "Grok" && cfg.Model == "" {
-		return nil, fmt.Errorf("❌ Grok model not specified. Please run `commito setup` again.")
+	if cfg.Provider == "Groq" && cfg.Model == "" {
+		return nil, fmt.Errorf("❌ Groq model not specified. Please run `commito setup` again.")
 	}
 
 	return &cfg, nil
