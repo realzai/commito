@@ -17,7 +17,7 @@ var setupCmd = &cobra.Command{
 
 		err := survey.AskOne(&survey.Select{
 			Message: "Choose an AI provider:",
-			Options: []string{"OpenAI", "Grok"},
+			Options: []string{"OpenAI", "Groq"},
 			Default: "OpenAI",
 		}, &provider)
 		if err != nil {
@@ -33,9 +33,9 @@ var setupCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-		if provider == "Grok" {
+		if provider == "Groq" {
 			err = survey.AskOne(&survey.Input{
-				Message: "Enter Grok model name:",
+				Message: "Enter Groq model name:",
 			}, &model, survey.WithValidator(survey.Required))
 			if err != nil {
 				fmt.Println("❌ Error entering model name:", err)
