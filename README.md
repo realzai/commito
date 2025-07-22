@@ -12,6 +12,19 @@ It analyzes your git diffs and provides intelligent suggestions through an LLM i
 - Code Change Analysis: Ask questions about your current changes and get intelligent responses
 - Easy Setup: Simple configuration process to get started quickly
 
+## Installation
+
+You can install `commito` using the following command:
+```bash
+go install github.com/realzai/commito@latest
+```
+
+Or
+
+You can download the latest release from the [releases page](
+https://github.com/realzai/commito/releases
+) and add it to your PATH.
+
 ## License
 
 MIT License
