@@ -1,1 +1,33 @@
 .idea
+
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build output
+/build/
+/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
+
+# Go stuff
+bin/
+pkg/
+*.test
+*.out
+
+# Dependency management
+vendor/
+go.sum
